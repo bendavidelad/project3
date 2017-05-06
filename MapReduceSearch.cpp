@@ -5,6 +5,7 @@
 #include <list>
 
 #include "MapReduceClient.h"
+#include "MapReduceFramework.h"
 
 using namespace std;
 
@@ -36,11 +37,15 @@ class MapReduceSearch : MapReduceBase{
         for (std::list<std::string>::const_iterator iterator = filesInCurrentFolder.begin(), end
                 = filesInCurrentFolder.end(); iterator != end; ++iterator) {
             if ((*iterator).find(pattern) != std::string::npos) {
-                filesThatMatches.push_back(*iterator);
+                Emit2(*iterator , 1);
             }
         }
+    }
 
-
+    virtual void Reduce(const k2Base *const key, const V2_VEC &vals){
+        std::string folderName = key->name();
+        for (std::list<v2Base *>::const_iterator iterator = filesInCurrentFolder.begin(), end
+                = filesInCurrentFolder.end(); iterator != end; ++iterator) {
 
     }
 };
