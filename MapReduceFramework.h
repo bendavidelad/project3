@@ -13,7 +13,7 @@ typedef std::vector<OUT_ITEM> OUT_ITEMS_VEC;
 OUT_ITEMS_VEC RunMapReduceFramework(MapReduceBase& mapReduce, IN_ITEMS_VEC& itemsVec, 
 									int multiThreadLevel, bool autoDeleteV2K2);
 
-void Emit2 (k2Base*, v2Base*);
-void Emit3 (k3Base*, v3Base*);
+void Emit2 (k2Base*, v2Base*);//map do
+void Emit3 (k3Base*, v3Base*);//reduce do
 
 #endif //MAPREDUCEFRAMEWORK_H
