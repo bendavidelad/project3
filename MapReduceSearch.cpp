@@ -6,12 +6,14 @@
 
 #include "MapReduceClient.h"
 #include "MapReduceFramework.h"
-
+#include "MapReduceClientUser.cpp"
 using namespace std;
 
 class MapReduceSearch : MapReduceBase{
 
     void Map(const k1Base *const key, const v1Base *const val){
+
+
         std::string pattern = key->name;
         std::string folderName = val->name;
 

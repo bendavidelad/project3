@@ -1,37 +1,83 @@
-//
-// Created by shaked571 on 5/6/17.
-//
+
 #include <iostream>
 #include "MapReduceClient.h"
+#include "MapReduceClientUser.h"
 
-class SubStringKey :public k1Base{
-    SubStringKey(std::string name):subString(name)
-    {}
 
-    ~FolderNameKey(){}
+/**
+ *
+ * SubStringKey class
+ * #####################################################################################
+ */
 
-    std::string getSubString(){
-        return subString;
+SubStringKey::SubStringKey(std::string name):subString(name){}
+
+~FolderNameKey(){}
+
+std::string SubStringKey::getSubString(){
+    return subString;
+}
+bool SubStringKey::operator<(const k1Base &other) const {
+    SubStringKey otherIns = (const SubStringKey&) other;
+
+    return this->subString < otherIns.getSubString();
     }
-    bool operator<(const k1Base &other) const {
-        SubStringKey otherIns = (const SubStringKey&) other;
 
-        return this->subString < otherIns.getSubString();
-    }
+SubStringKey::~FolderNameKey() {
 
-private:
-    std::string subString;
-};
+}
 
 
-class FolderNameKey: public v1Base{
-    FolderNameKey(std::string name): folderName(name)
-    {}
-    std::string getFoloderName(){
-        return folderName;
-    }
-    
-private:
-    std::string folderName;
 
-};
+
+/**
+ *
+ * FolderNameKey class
+ * #####################################################################################
+ */
+//constructor
+FolderNameKey::FolderNameKey(std::string name): folderName(name) {}
+
+std::string FolderNameKey::getFoloderName(){
+    return folderName;
+}
+
+
+/**
+ *
+ * oneClass class
+ * #####################################################################################
+ */
+int oneClass::getOne() {
+    return val;
+}
+
+oneClass::~oneClass() {
+}
+
+oneClass::oneClass() {
+}
+
+
+
+/**
+ *
+ * FileName class
+ * #####################################################################################
+ */
+FileName::FileName(std::string name) {
+
+}
+FileName::~FileName(){
+
+}
+std::string FileName::getFileName() {
+    return fileName;
+}
+
+bool FileName::operator<(const k2Base &other) const {
+    FileName otherIns = (const FileName&) other;
+
+    return this->fileName < otherIns.getFileName();
+}
+}
