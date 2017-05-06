@@ -8,14 +8,17 @@ class FolderNameKey :public k1Base{
     FolderNameKey(std::string name):folderName(name)
     {}
 
-    ~FolderNameKey(){
+    ~FolderNameKey(){}
+
+    std::string getFolerName(){
+        return folderName;//ddd
     }
-    bool operator<(const k1Base &other) {
-//        int length = max(folderName.length();
-//        for()
-        return true;
+    bool operator<(const k1Base &other) const {
+        FolderNameKey otherIns = (const FolderNameKey&) other;
+
+        return this->folderName < otherIns.getFolerName();
     }
 
-public:
+private:
     std::string folderName;
 };
