@@ -19,8 +19,6 @@ public:
 
 SubStringKey::SubStringKey(std::string name):subString(name){}
 
-~FolderNameKey(){}
-
 std::string SubStringKey::getSubString(){
     return subString;
 }
@@ -30,7 +28,7 @@ bool SubStringKey::operator<(const k1Base &other) const {
     return this->subString < otherIns.getSubString();
     }
 
-SubStringKey::~FolderNameKey() {
+SubStringKey::~SubStringKey() {
 
 }
 
@@ -58,7 +56,7 @@ private:
 //constructor
 FolderNameKey::FolderNameKey(std::string name): folderName(name) {}
 
-std::string FolderNameKey::getFoloderName(){
+std::string FolderNameKey::getFolderName(){
     return folderName;
 }
 
@@ -100,4 +98,4 @@ bool FileName::operator<(const k2Base &other) const {
 
     return this->fileName < otherIns.getFileName();
 }
-}
+

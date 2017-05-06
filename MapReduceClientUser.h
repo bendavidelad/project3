@@ -8,7 +8,7 @@ class SubStringKey :public k1Base{
 public:
     SubStringKey(std::string name);
 
-    ~FolderNameKey();
+    ~SubStringKey();
 
     std::string getSubString();
 
@@ -20,11 +20,10 @@ private:
 
 
 class FolderNameKey: public v1Base{
-    FolderNameKey(std::string name): folderName(name)
-    {}
-    std::string getFoloderName(){
-        return folderName;
-    }
+public:
+    FolderNameKey(std::string name);
+
+    std::string getFolderName();
 
 private:
     std::string folderName;
@@ -59,4 +58,9 @@ private:
     int val = 1;
 };
 
-class FileNameReduce: public 
+class FileNameReduce: public k3Base{
+
+
+
+
+};
