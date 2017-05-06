@@ -27,7 +27,6 @@ int main(int argc, char* argv[])
     string n = "nnn";
     string c = "caa";
     cout<<"(a> c): "<<(a< c)<<endl;
-    cout<<"(a> c): "<<(a< c)<<endl;
 
     return 0;
 }
