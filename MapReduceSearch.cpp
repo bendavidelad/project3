@@ -6,20 +6,28 @@
 
 #include "MapReduceClient.h"
 #include "MapReduceFramework.h"
+#include "MapReduceClientUser.cpp"
 
 using namespace std;
 
 class MapReduceSearch : MapReduceBase{
 
     void Map(const k1Base *const key, const v1Base *const val){
-        std::string pattern = key->name;
-        std::string folderName = val->name;
+
+        k1Base k1 = *key;
+        SubStringKey & pattern = dynamic_cast<SubStringKey&>(k1);
+
+        v1Base v1 = *val;
+        FolderNameKey & folderName = dynamic_cast<FolderNameKey&>(v1);
+
+        std::string patternString = pattern.getSubString();
+        std::string folderNameString = folderName.getFoloderName();
 
         list<std::string> filesInCurrentFolder;
 
         DIR *dir;
         struct dirent *ent;
-        if ((dir = opendir (folderName.c_str())) != NULL) {
+        if ((dir = opendir (folderNameString.c_str())) != NULL) {
             /* print all the files and directories within directory */
             while ((ent = readdir (dir)) != NULL) {
                 filesInCurrentFolder.push_back(ent->d_name);
@@ -36,16 +44,23 @@ class MapReduceSearch : MapReduceBase{
 
         for (std::list<std::string>::const_iterator iterator = filesInCurrentFolder.begin(), end
                 = filesInCurrentFolder.end(); iterator != end; ++iterator) {
-            if ((*iterator).find(pattern) != std::string::npos) {
+            if ((*iterator).find(patternString) != std::string::npos) {
                 Emit2(*iterator , 1);
             }
         }
     }
 
-    virtual void Reduce(const k2Base *const key, const V2_VEC &vals){
+    virtual void Reduce(const k2Base *const key, const V2_VEC &vals)
+    {
         std::string folderName = key->name();
-        for (std::list<v2Base *>::const_iterator iterator = filesInCurrentFolder.begin(), end
-                = filesInCurrentFolder.end(); iterator != end; ++iterator) {
+        int counter = 0;
 
-    }
+        for (std::vector<v2Base *>::const_iterator iterator = vals.begin(), end
+                = vals.end(); iterator != end; ++iterator)
+        {
+            counter++;
+        }
+                                                      }
+
+
 };

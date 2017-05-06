@@ -5,6 +5,7 @@
 #include "MapReduceClient.h"
 
 class SubStringKey :public k1Base{
+public:
     SubStringKey(std::string name):subString(name)
     {}
 
@@ -25,6 +26,7 @@ private:
 
 
 class FolderNameKey: public v1Base{
+public:
     FolderNameKey(std::string name): folderName(name)
     {}
     std::string getFoloderName(){
