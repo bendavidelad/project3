@@ -3,13 +3,6 @@
 #include "MapReduceClient.h"
 #include "MapReduceClientUser.h"
 
-<<<<<<< HEAD
-class SubStringKey :public k1Base{
-public:
-    SubStringKey(std::string name):subString(name)
-    {}
-=======
->>>>>>> d95ecf80816173519c268cd0ee16e87d3e6a0255
 
 /**
  *
@@ -32,19 +25,6 @@ SubStringKey::~SubStringKey() {
 
 }
 
-<<<<<<< HEAD
-class FolderNameKey: public v1Base{
-public:
-    FolderNameKey(std::string name): folderName(name)
-    {}
-    std::string getFoloderName(){
-        return folderName;
-    }
-    
-private:
-    std::string folderName;
-=======
->>>>>>> d95ecf80816173519c268cd0ee16e87d3e6a0255
 
 
 

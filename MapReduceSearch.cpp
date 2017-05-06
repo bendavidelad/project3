@@ -7,17 +7,13 @@
 #include "MapReduceClient.h"
 #include "MapReduceFramework.h"
 #include "MapReduceClientUser.cpp"
-<<<<<<< HEAD
 
-=======
->>>>>>> d95ecf80816173519c268cd0ee16e87d3e6a0255
 using namespace std;
 
 class MapReduceSearch : MapReduceBase{
 
     void Map(const k1Base *const key, const v1Base *const val){
 
-<<<<<<< HEAD
         k1Base k1 = *key;
         SubStringKey & pattern = dynamic_cast<SubStringKey&>(k1);
 
@@ -26,11 +22,9 @@ class MapReduceSearch : MapReduceBase{
 
         std::string patternString = pattern.getSubString();
         std::string folderNameString = folderName.getFoloderName();
-=======
 
         std::string pattern = key->name;
         std::string folderName = val->name;
->>>>>>> d95ecf80816173519c268cd0ee16e87d3e6a0255
 
         list<std::string> filesInCurrentFolder;
 
