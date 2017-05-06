@@ -59,4 +59,9 @@ private:
     int val = 1;
 };
 
-class FileNameReduce: public 
+class FileNameReduce: public k3Base{
+
+
+
+
+};
